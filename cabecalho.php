@@ -6,7 +6,7 @@
     <div class="row">
 
     <div class="col-sm">
-        <img src="assets/Atelie_Aline21.png" height="100" width="100">
+        <a href='home.php'><img src="assets/Atelie_Aline21.png" height="100" width="100"></a>
     </div>
 
         <div class="col-sm">
@@ -26,10 +26,10 @@
                 <div class="row">
 
                     <div class="col-sm">
-                    <i class="fa-solid fa-heart fa-2xl" style="margin-top: 20px;"></i>
+                    <a href='listadedesejos.php'> <i class="fa-solid fa-heart fa-2xl" style="margin-top: 20px;"></i> </a>
                     </div>
                     <div class="col-sm">
-                    <i class="fa-solid fa-cart-shopping fa-2xl" style="margin-top: 20px;"></i>
+                    <a href='carrinhodecompras.php'><i class="fa-solid fa-cart-shopping fa-2xl" style="margin-top: 20px;"></i></a>
                     </div>
                     <div class="col-sm">                        
                     <i class="fa-solid fa-bars fa-2xl" style="margin-top: 20px;"></i>                        

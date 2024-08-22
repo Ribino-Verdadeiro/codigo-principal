@@ -26,4 +26,6 @@
       #sair{
         text-align: center;
       }
+      a { color: inherit; } 
+      a:hover {color: rgb(211, 75, 98) }
 </style>
