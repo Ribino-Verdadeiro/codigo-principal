@@ -21,18 +21,7 @@ include 'cabecalho.php';
 
 include 'homeaqui.php';
 ?>
-   
-
-  <div id="sair">    
-    <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="logoff.php" class="nav-link">
-            Entre na sua conta Aqui
-          </a>
-        </li>
-    </ul>
-  </div>
-      
+        
 
 <?php include 'rodape.html'; ?>
 
