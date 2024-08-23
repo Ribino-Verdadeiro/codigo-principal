@@ -21,7 +21,7 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active" align='center'>
-      <img class='imagem' class="d-block w-100" src="assets/img1.png" alt="First slide">
+      <img class='imagem' class="d-block w-100" src="assets/imagem-prin.png" alt="First slide">
     </div>
 
     <div class="carousel-item" align='center'>

@@ -82,3 +82,24 @@
     text-align: center;
     border: 2px solid black;
 }
+
+#bem{
+    border-right: 4px solid;
+    white-space: nowrap;
+    width: 14ch;
+    overflow: hidden;
+    animation: animaTexto steps(14) 2s, animaMarcador 0.5s linear infinite;
+
+}
+
+@keyframes animaMarcador{
+    50%{
+        border-right: transparent;
+    }
+}
+
+@keyframes animaTexto{
+    0%{
+        width: 0;
+    }
+}

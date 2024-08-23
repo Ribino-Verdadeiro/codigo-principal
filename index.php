@@ -27,7 +27,7 @@ include 'styleCabelho.php';
 
             <div class="card">
                 <div class="card-header">
-                    Seja bem-vindo!
+                    <h6 id='bem'> Seja bem-vindo!</h6>
                 </div>
 
                 
