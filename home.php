@@ -17,11 +17,12 @@ include 'styleCabelho.php';
 <body>
 
 <?php 
+
 include 'cabecalho.php';
 
 include 'homeaqui.php';
 ?>
-        
+   
 
 <?php include 'rodape.html'; ?>
 

@@ -111,10 +111,80 @@
 
 #menuu{
     height: 80vh;
-    margin-left: 85%;
-    width: 15%;
+    margin-left: 83%;
+    width: 17%;
     text-align: center;
     padding-top: 1%;
+    border-radius: 5px;
 
 }
+.c7{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    border: 2px solid black;
+}
+.coluna{
+    border: 2px solid black;
+    border-radius: 15px;
+    transition: 0.5s;
+    height: 50px;
 
+}
+.coluna:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.bot{
+    margin-top: 20px;
+    cursor: pointer;
+}
+.c1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    border: 2px solid black;
+}
+.c2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    border: 2px solid black;
+}
+.c3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    border: 2px solid black;
+}
+.c4{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    border: 2px solid black;
+}
+.c5{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    border: 2px solid black;
+}
+.c6{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    border: 2px solid black;
+}

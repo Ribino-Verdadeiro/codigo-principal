@@ -47,7 +47,7 @@
                       </div>
                       <div class="col-sm">   
                       <button id='botao2' popovertarget='menuu'>                      
-                      <i class="fa-solid fa-bars fa-2xl" style="margin-top: 20px;"></i>  
+                      <i class="fa-solid fa-bars fa-2xl bot"></i>  
                       </button>                      
                       </div>
   
@@ -70,10 +70,49 @@
  <div id="sair">    
     <ul class="navbar-nav">
         <li class="nav-item">
-        <i class="fa-solid fa-user"></i>
-          <a href="logoff.php" class="nav-link">
-            Minha Conta!
-          </a>
+
+            <div class="coluna c1">
+            <a href="#" class="nav-link">
+             Mais vendidos 
+            </a>
+            </div>
+
+            <div class="coluna c2">
+            <a href="#" class="nav-link">
+             MOCHILAS 
+            </a>
+            </div>
+
+            <div class="coluna c3">
+            <a href="#" class="nav-link">
+             Estojos 
+            </a>
+            </div>
+
+            <div class="coluna c4">
+            <a href="#" class="nav-link">
+             Chaveiros 
+            </a>
+            </div>
+
+            <div class="coluna c5">
+            <a href="#" class="nav-link">
+             Necessaire 
+            </a>
+            </div>
+
+            <div class="coluna c6">
+            <a href="#" class="nav-link">
+             Personalizados 
+            </a>
+            </div>
+
+            <div class="coluna c7">
+                <a href="logoff.php" class="nav-link">
+                    Minha Conta!
+                </a>
+            </div>
+
         </li>
     </ul>
   </div>
