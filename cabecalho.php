@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/icontop.png">
+    
 
 
 </head>
@@ -20,7 +22,7 @@
       <div class="row">
   
       <div class="col-sm">
-          <a href='home.php'><img src="assets/Atelie_Aline21.png" height="100" width="100"></a>
+          <a href='home.php' class='imagemi'><img src="assets/imagemIcone.png" class='imagemi' ></a>
       </div>
   
           <div class="col-sm">
@@ -40,14 +42,14 @@
                   <div class="row">
   
                       <div class="col-sm">
-                      <a href='listadedesejos.php'> <i class="fa-solid fa-heart fa-2xl" style="margin-top: 20px;"></i> </a>
+                      <a href='listadedesejos.php'> <i class="fa-solid fa-heart fa-2xl coracao" style="margin-top: 20px;"></i> </a>
                       </div>
                       <div class="col-sm">
-                      <a href='carrinhodecompras.php'><i class="fa-solid fa-cart-shopping fa-2xl" style="margin-top: 20px;"></i></a>
+                      <a href='carrinhodecompras.php'><i class="fa-solid fa-cart-shopping fa-2xl carrinho"  style="margin-top: 20px;"></i></a>
                       </div>
                       <div class="col-sm">   
                       <button id='botao2' popovertarget='menuu'>                      
-                      <i class="fa-solid fa-bars fa-2xl bot"></i>  
+                      <i class="fa-solid fa-bars fa-2xl bot meenu"></i>  
                       </button>                      
                       </div>
   

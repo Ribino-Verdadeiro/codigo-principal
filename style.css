@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
-
 .card-login {
     padding: 30px;
     width: 100%;
@@ -187,4 +186,102 @@
     justify-content: center;
     margin-top: 5px;
     border: 2px solid black;
+}
+.card-home {
+  padding: 30px 0 0 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cabecalho, .conteinera{
+  width: 100%;
+  background-color: pink;
+  background-size: cover;
+}
+
+#botao{
+   background-color: pink;
+   border-color: white;
+   color: white;
+   transition: 0.5s;
+}
+
+#botao:hover{
+   background-color: pink;
+   border-color: white;
+   transform: scale(1.1);
+ }
+
+#sair{
+  text-align: center;
+}
+a { 
+  color: inherit; 
+} 
+a:hover {
+  color: rgb(211, 75, 98) 
+}
+.coracao{
+    transition: 0.2s;
+}
+.coracao:hover{
+    transform: scale(1.2);
+    color: black;
+}
+.carrinho{
+    transition: 0.2s;
+}
+.carrinho:hover{
+    transform: scale(1.2);
+    color: black;
+}
+.meenu{
+    transition: 0.2s;
+}
+.meenu:hover{
+    transform: scale(1.2);
+    color: black;
+}
+.imagemi{
+    margin-top: -70px;
+    margin-left: 20px;
+    height: 150px;
+    width: 150px;
+    transition: 0.2s;
+}
+.imagemi:hover{
+    transform: scale(1.1);
+}
+.try{
+    width: 150px;
+    height: 100px;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.try:hover{
+    animation: teste 10s;
+}
+@keyframes teste{
+    0%{
+
+    }
+    10%{
+        margin-left: 20%;
+    }
+    20%{
+        margin-left: 30%;
+    }
+    40%{
+        margin-left: 60%;
+    }
+    60%{
+       margin-left: 30%;
+    }
+    80%{
+        margin-left: 50%;
+    }
 }
