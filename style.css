@@ -286,3 +286,35 @@ a:hover {
         margin-left: 50%;
     }
 }
+#conteiner1{
+    border: 2px solid black;
+    height: 400px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.cards{
+    border: 2px solid black;
+    height: 300px;
+    width: 300px;
+    margin: 10px 10px;
+}
+.card1{
+    transition: 0.4s;
+    overflow: hidden;
+}
+.card1:hover{
+    position: relative;
+    content: "mochila mochila";
+    opacity: 0.5;
+}
+
+.texto1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}

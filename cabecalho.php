@@ -83,7 +83,7 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
         <li class="nav-item">
 
             <div class="coluna c1">
-            <a href="#" class="nav-link">
+            <a href="maisVendido.php" class="nav-link">
              Mais vendidos 
             </a>
             </div>

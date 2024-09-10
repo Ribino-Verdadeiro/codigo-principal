@@ -21,7 +21,17 @@ include 'cabecalho.php';
 
 include 'homeaqui.php';
 ?>
-        
+     
+<div id="conteiner1">
+    <div class="cards card1">
+        <img src='assets/mochila.jpg' height='300px' width='300px'>
+        <p class='texto1'> Mochila </p>
+    </div>
+    <div class="cards"></div>
+    <div class="cards"></div>
+    <div class="cards"></div>
+</div>
+
 
 <?php include 'rodape.html'; ?>
 
