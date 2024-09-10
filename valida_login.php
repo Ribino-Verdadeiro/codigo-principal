@@ -1,29 +1,43 @@
 <?php
-session_set_cookie_params(0); 
-session_start();
+session_start(); // Inicia a sessão
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+// Configurações do banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db_name = "clientes";
 
-$file = 'usuarios.txt';
-$usuarios = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+// Cria a conexão com o banco de dados
+$conn = new mysqli($servername, $username, $password, $db_name);
 
-$login_valido = false;
-
-foreach ($usuarios as $usuario) {
-    list($email_cadastrado, $senha_cadastrada) = explode(':', $usuario);
-
-    if ($email === $email_cadastrado && password_verify($senha, $senha_cadastrada)) {
-        $login_valido = true;
-        break;
-    }
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
 }
 
-if ($login_valido) {
-    $_SESSION['autenticado'] = 'SIM';
-    header('Location: home.php');
+// Captura os dados do formulário
+$email = $_POST['email'] ?? '';
+$senha = $_POST['senha'] ?? '';
+
+// Prepara a declaração para buscar o usuário
+if ($stmt = $conn->prepare("SELECT senha FROM login_clientes WHERE email = ?")) {
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->bind_result($senha_cadastrada);
+    $stmt->fetch();
+    $stmt->close();
+        
+    // Verifica se a senha é válida
+    if (password_verify($senha, $senha_cadastrada)) {
+        $_SESSION['autenticado'] = 'SIM';
+        header('Location: index.php');
+    } else {
+        header('Location: login.php?login=erro');
+    }
 } else {
-    header('Location: index.php?login=erro');
+    die("Erro na preparação da declaração: " . $conn->error);
 }
 
 exit();
+$conn->close();
+?>

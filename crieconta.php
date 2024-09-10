@@ -6,6 +6,7 @@
     <title>Ateliê Aline Nacur - Criar Conta</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/corujinha.png"/>
 <?php 
 include 'styleCabelho.php';   
 ?>
@@ -29,7 +30,9 @@ include 'cabecalho.php';
             <div class="card-body">
 
                 <form action="criandoconta.php" method="post">
-
+                    <div class="form-group">
+                        <input name="nome" type="text" class="form-control" placeholder="Nome" required>
+                    </div>
                     <div class="form-group">
                         <input name="email" type="email" class="form-control" placeholder="E-mail" required>
                     </div>
@@ -39,7 +42,7 @@ include 'cabecalho.php';
                     </div>
 
                     <div class="form-group">
-                        <input name="confirmar-senha" type="password" class="form-control" placeholder="Confirmar senha" required>
+                        <input name="confirmar_senha" type="password" class="form-control" placeholder="Confirmar senha" required>
                     </div>
 
                     <?php if (isset($_GET['erro'])) { ?>
@@ -68,7 +71,7 @@ include 'cabecalho.php';
                 <div id='criar'> 
                     Ja possui uma conta?
                     <br>
-                    <a href='index.php' id='login'> Entre agora! </a>
+                    <a href='login.php' id='login'> Entre agora! </a>
                 </div>
             </div>
         </div>

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title> Aline</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylez.css">    
+    <link rel="stylesheet" href="stylez.css">   
+    <link rel="shortcut icon" href="assets/corujinha.png"/> 
 </head>
 
 <body>

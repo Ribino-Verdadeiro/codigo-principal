@@ -1,3 +1,12 @@
+
+<?php 
+if(!isset($_SESSION)){
+    session_start();
+}
+
+$usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado'] ==='SIM';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -110,9 +119,17 @@
             </div>
 
             <div class="coluna c7">
-                <a href="logoff.php" class="nav-link">
+                
+                <?php if($usuario_autenticado): ?> 
+                <a href="minhaconta.php" class="nav-link">
                     Minha Conta!
                 </a>
+                <?php  else: ?>
+                    <a href='login.php' class='nav-link'>
+                        Logar
+                    </a>
+                <?php endif;?>
+
             </div>
 
         </li>
