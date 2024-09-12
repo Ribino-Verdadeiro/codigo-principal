@@ -31,7 +31,7 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
       <div class="row">
   
       <div class="col-sm">
-          <a href='home.php' class='imagemi'><img src="assets/imagemIcone.png" class='imagemi' ></a>
+          <a href='index.php' class='imagemi'><img src="assets/imagemIcone.png" class='imagemi' ></a>
       </div>
   
           <div class="col-sm">
@@ -82,55 +82,63 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
     <ul class="navbar-nav">
         <li class="nav-item">
 
+            
+            <a href="#" class="nav-link">
             <div class="coluna c1">
-            <a href="maisVendido.php" class="nav-link">
-             Mais vendidos 
+             Mochilas
+            </div> 
             </a>
-            </div>
+            
 
+            
+            <a href="#" class="nav-link">
             <div class="coluna c2">
-            <a href="#" class="nav-link">
-             MOCHILAS 
-            </a>
-            </div>
-
-            <div class="coluna c3">
-            <a href="#" class="nav-link">
              Estojos 
-            </a>
             </div>
+            </a>
+            
 
-            <div class="coluna c4">
+            
             <a href="#" class="nav-link">
+            <div class="coluna c3">
              Chaveiros 
-            </a>
             </div>
+            </a>
+            
 
-            <div class="coluna c5">
+            
             <a href="#" class="nav-link">
+            <div class="coluna c4">
              Necessaire 
-            </a>
             </div>
+            </a>
+            
 
-            <div class="coluna c6">
             <a href="#" class="nav-link">
+            <div class="coluna c5">
+            
              Personalizados 
-            </a>
+            
             </div>
+            </a>
 
-            <div class="coluna c7">
+            
                 
                 <?php if($usuario_autenticado): ?> 
                 <a href="minhaconta.php" class="nav-link">
+                <div class="coluna c6">
                     Minha Conta!
+                </div>
                 </a>
                 <?php  else: ?>
                     <a href='login.php' class='nav-link'>
+                    <div class="coluna c6">
                         Logar
+                    </div>
                     </a>
                 <?php endif;?>
 
-            </div>
+            
 
         </li>
     </ul>

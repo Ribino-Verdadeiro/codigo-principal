@@ -1,4 +1,11 @@
+<?php
+include 'db.php';
 
+// Buscar produtos
+$sql = "SELECT * FROM produtos";
+$result = $conn->query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,7 +30,37 @@ include 'cabecalho.php';
 
 include 'homeaqui.php';
 ?>
-   
+
+<div id="conteiner1">
+
+    
+        <?php
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+
+                $nome = htmlspecialchars($row["nome"]);
+                $foto = htmlspecialchars($row["foto"]);
+                $foto_url = "uploads/" . $foto;
+                $nomeM = ucfirst($nome);
+                
+
+                echo "
+                <a href=' # '><div class='cards card1'>
+                <img src='$foto_url' height='300px' width='300px' alt='$nome'>
+                <p class='text'> $nomeM </p>
+                </div></a>
+                ";
+                        
+            }
+        } else {
+            echo "<p>Nenhum produto encontrado.</p>";
+        }
+        ?>
+
+    
+</div>
+
+
 
 <?php include 'rodape.html'; ?>
 

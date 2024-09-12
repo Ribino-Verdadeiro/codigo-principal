@@ -1,17 +1,5 @@
 <?php
-// Configurações do banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "clientes";
-
-// Cria a conexão com o banco de dados
-$conn = new mysqli($servername, $username, $password, $db_name);
-
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
-}
+include 'db.php';
 
 // Captura os dados do formulário
 $nome = $_POST['nome'];

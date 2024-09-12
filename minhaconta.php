@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] !== 'SIM') {
-    header('Location: login.php?login=erro2');
-    exit();
-}
+include 'validator.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

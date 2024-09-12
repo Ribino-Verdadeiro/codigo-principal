@@ -5,5 +5,5 @@
       header('Location: login.php?login=erro2');
       exit();
   }
-  
+  // Validação do cliente
 ?>
