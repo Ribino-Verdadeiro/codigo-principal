@@ -373,3 +373,23 @@ a:hover {
 .submitdocriarprodutos:hover{
     transform: scale(1.2);
 }
+#categorias{
+    width: 100%;
+    height: 35px;
+    align-items: center;
+    border: 2px solid black;
+    background-color: pink;
+    display: flex;
+    justify-content: start;
+  
+}
+.cat{
+    margin-left: 20px;
+    margin-right: 20px;
+    letter-spacing: 3px;
+    transition: 0.4s;
+    font-style:oblique;
+}
+.cat:hover{
+    transform: scale(1.1);
+}

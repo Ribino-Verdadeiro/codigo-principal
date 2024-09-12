@@ -147,6 +147,19 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
 
 </div>
 
+<div id="categorias">
+    
+<div class="cat1 cat"> Chaveiros </div>
+<div class="cat2 cat"> Necessaire </div>
+<div class="cat3 cat"> Mochilas </div>
+<div class="cat4 cat"> Estojos </div>
+<div class="cat5 cat"> Lancheiras </div>
+<div class="cat6 cat"> Tapetes </div>
+
+</div>
+
+
+
 
 </body>
 
