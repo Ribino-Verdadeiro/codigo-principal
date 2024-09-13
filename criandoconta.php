@@ -7,9 +7,24 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmar_senha = $_POST['confirmar_senha'];
 
+// Função para verificar se a senha é forte
+function senha_forte($senha) {
+    return preg_match('/[A-Z]/', $senha) &&         // Letra maiúscula
+           preg_match('/[a-z]/', $senha) &&         // Letra minúscula
+           preg_match('/[0-9]/', $senha) &&         // Número
+           preg_match('/[\W_]/', $senha) &&         // Caracter especial
+           strlen($senha) >= 8;                     // Comprimento mínimo
+}
+
 // Verifica se as senhas coincidem
 if ($senha !== $confirmar_senha) {
     header('Location: crieconta.php?erro=senha');
+    exit();
+}
+
+// Verifica se a senha é forte
+if (!senha_forte($senha)) {
+    header('Location: crieconta.php?erro=senha_forte');
     exit();
 }
 

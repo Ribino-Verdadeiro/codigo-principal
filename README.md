@@ -1,6 +1,6 @@
 # Para configurar o sistema de envio de e-mails, siga estes passos:
 
-1- Extraia o arquivo "phpmailer.rar".
+1- Extraia o arquivo "codigo-principal-main.rar".
 
 2- Localize o arquivo "php.ini" atualizado na pasta do projeto "codigo-principal-main" no diretório C:\xampp\htdocs\codigo-principal-main.
 

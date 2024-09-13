@@ -290,22 +290,23 @@ a:hover {
 }
 .cards{
     display: flex;
-    border: 2px solid black;
-    height: 300px;
+    flex-direction: column;
+    height: 380px;
     width: 300px;
-    margin: 10px 10px;
-    overflow: hidden;
+    margin-top: 20px;
     text-align: center;
+    margin-left: 7px;
+    margin-right: 8px;
 }
 .text{
     visibility: hidden;
     font-size: 30px;
     z-index: 1;
     position: absolute;
-    top: 50%;
+    top: 93%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: rgb(0, 0, 0);
     box-shadow: black;
     font-style: oblique;
     letter-spacing: 2px;
@@ -317,11 +318,10 @@ a:hover {
 
 .card1{
     transition: 0.7s;
-    overflow: hidden;
 }
 .card1:hover{
     position: relative;
-    opacity: 0.5;
+    transform: scale(1.1);
 }
 
 .texto1{
@@ -361,10 +361,17 @@ a:hover {
     flex-direction: row;
     width: 1000px;
 }
+#containerDeImagem{
+    display: flex;
+    flex-direction: row;
+}
 .imagemdoformcriarprodutos{
+    margin-top: 20px;
     width: 400px;
-    height: 300px;
-    
+    height: 30px;
+}
+.imagemdoformcriarprodutos:hover{
+    cursor: pointer;
 }
 .submitdocriarprodutos{
     transition: 0.4s;
@@ -377,7 +384,7 @@ a:hover {
     width: 100%;
     height: 35px;
     align-items: center;
-    border: 2px solid black;
+    border-top: 1px solid rgb(0, 0, 0);
     background-color: pink;
     display: flex;
     justify-content: start;
@@ -392,4 +399,5 @@ a:hover {
 }
 .cat:hover{
     transform: scale(1.1);
+    cursor:pointer;
 }

@@ -45,10 +45,10 @@ include 'homeaqui.php';
                 
 
                 echo "
-                <a href=' # '><div class='cards card1'>
+                <a href=' # '> <div class='cards card1'>
                 <img src='$foto_url' height='300px' width='300px' alt='$nome'>
                 <p class='text'> $nomeM </p>
-                </div></a>
+                </div> </a>
                 ";
                         
             }

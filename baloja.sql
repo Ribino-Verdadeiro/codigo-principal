@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12/09/2024 às 15:22
+-- Tempo de geração: 13/09/2024 às 07:10
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -32,16 +32,20 @@ CREATE TABLE `login_clientes` (
   `nome` varchar(50) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
-  `is_admin` tinyint(1) DEFAULT 0
+  `is_admin` tinyint(1) DEFAULT 0,
+  `reset_token` varchar(255) DEFAULT NULL,
+  `token_expiration` datetime DEFAULT NULL,
+  `verification_code` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Despejando dados para a tabela `login_clientes`
 --
 
-INSERT INTO `login_clientes` (`ID`, `nome`, `email`, `senha`, `is_admin`) VALUES
-(3, 'Enaldinho', 'luisoujpof@gmail.com', '$2y$10$0R13u.vA2vPQXlYXPr0BeOp5MYCyXhob7S3nvtLkqnYQKYUWfHTCq', 0),
-(4, NULL, 'admin@example.com', '$2y$10$cnKkzIo6qC5n3SFSXminZePAgLUS8k7sSpjDqgueb5r3IBEPk8vYa', 1);
+INSERT INTO `login_clientes` (`ID`, `nome`, `email`, `senha`, `is_admin`, `reset_token`, `token_expiration`, `verification_code`) VALUES
+(4, NULL, 'admin@example.com', '$2y$10$cnKkzIo6qC5n3SFSXminZePAgLUS8k7sSpjDqgueb5r3IBEPk8vYa', 2, 'd544c7d0e3922337ba2005ebdbb243bb', '2024-09-13 07:45:00', '9c99a541d453'),
+(5, 'João Pedro Diniz Nacur', 'luisoujpof@gmail.com', '$2y$10$bGmcNOM3g69YEgohYoMpDOsKXskAFv77jYyUxDNHnX8ELLMQf0te6', 0, NULL, NULL, '34d99da9aee7'),
+(6, 'Gabriel ', '7stevensdiamante@gmail.com', '$2y$10$YOGlGSHrtO8zHgGMjhjFEu0qoqfWTBnTg.IZpGDahuclw9FN6Oi1S', 0, NULL, NULL, 'e7f00bf653ab');
 
 -- --------------------------------------------------------
 
@@ -91,7 +95,7 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `login_clientes`
 --
 ALTER TABLE `login_clientes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`

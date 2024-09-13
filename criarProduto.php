@@ -30,49 +30,80 @@ include 'validatoradmin.php';
                         <input type="number" step="0.02" name="preco" class="inputcriarprodutos" placeholder="Preço">
                     </label>
                 </div>
+
                 <div class="formcriarprodutos">
                     <label for="altura">Altura
                         <input type="number" class="inputcriarprodutos" name="altura" placeholder="Altura" step="0.02">
                     </label>
+
                     <label for="largura">Largura
                         <input type="number" class="inputcriarprodutos" name="largura" placeholder="Largura" step="0.02">
                     </label>
+
                     <label for="comprimento">Comprimento
                         <input type="number" class="inputcriarprodutos" name="comprimento" placeholder="Comprimento" step="0.02">
                     </label>
+
                 </div>
-                <div class="imagemdoformcriarprodutos">
-                    <label>
-                        <input type="file" id="imagem" name="foto">
-                        <img id="preview" src="" class="imagemdoformcriarprodutos" alt="Pré-visualização da imagem">
-                    </label>
+
+
+                <div class="conteinerimagem">
+
+
+                    <div class="imagemdoformcriarprodutos">
+                        <label>
+                            <input type="file" id="imagem" name="foto">
+                        </label>
+                    </div>
+
+                    <div class="imagemdoformcriarprodutos">
+                        <label>
+                            <input type="file" id="imagem" name="foto2">
+                        </label>
+                    </div>
+
+                    <div class="imagemdoformcriarprodutos">
+                        <label>
+                            <input type="file" id="imagem" name="foto3">
+                        </label>
+                    </div>
+
+                    <div class="imagemdoformcriarprodutos">
+                        <label>
+                            <input type="file" id="imagem" name="foto4">
+                        </label>
+                    </div>
+                    
+                    <div class="imagemdoformcriarprodutos">
+                        <label>
+                            <input type="file" id="imagem" name="foto5">
+                        </label>
+                    </div>
+
+                    <div class="imagemdoformcriarprodutos">
+                        <label>
+                            <input type="file" id="imagem" name="foto6">
+                        </label>
+                    </div>
+
+
                 </div>
+
             </div>
+
+
             <input type="submit" class="inputcriarprodutos submitdocriarprodutos" value="Criar Produto">
-            <a href="logoff.php" class="btn btn-danger">Logoff</a>
+
         </form>
     </div>
 
-    <script>
-        const inputImagem = document.getElementById('imagem');
-        const previewImagem = document.getElementById('preview');
 
-        inputImagem.addEventListener('change', () => {
-        const arquivoImagem = inputImagem.files[0];
 
-        if (arquivoImagem) {
-            const reader = new FileReader();
 
-            reader.onload = (e) => {
-            previewImagem.src = e.target.result;
-            };
 
-            reader.readAsDataURL(arquivoImagem);
-        } else {
-            previewImagem.src = "";
-        }
-        });
-    </script>
+
+
+
 <?php include 'rodape.html' ?>
 </body>
 

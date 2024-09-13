@@ -49,19 +49,17 @@ include 'cabecalho.php';
 
                         <div class="text-danger">
                             <?php
-                            if($_GET['erro'] == 'senha'){
+                            if ($_GET['erro'] == 'senha') {
                                 echo 'As senhas não coincidem.';
-                            } elseif($_GET['erro'] == 'email' ){
-                                echo 'Esse Email ja está cadastrado';
+                            } elseif ($_GET['erro'] == 'email') {
+                                echo 'Esse Email já está cadastrado.';
+                            } elseif ($_GET['erro'] == 'senha_forte') {
+                                echo 'A senha deve ter pelo menos 8 caracteres e incluir letras maiúsculas, minúsculas, números e caracteres especiais.';
                             }
                             ?>
-                           
-                        </div>      
+                        </div>
 
                     <?php } ?>
-
-                    
-
 
                     <button id='bottom2' class="btn btn-lg btn-info btn-block" type="submit">Criar!</button>
                 </form>
@@ -69,7 +67,7 @@ include 'cabecalho.php';
                 <br>
 
                 <div id='criar'> 
-                    Ja possui uma conta?
+                    Já possui uma conta?
                     <br>
                     <a href='login.php' id='login'> Entre agora! </a>
                 </div>

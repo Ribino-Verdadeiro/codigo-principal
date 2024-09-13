@@ -1,17 +1,7 @@
 <?php
 include 'validatoradmin.php';
 
-// Conectar ao banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baloja";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
+include 'db.php';
     /*A função "trim" é usado para limpar espaços brancos/vazios.
     
     A função isset verifica se uma variável está definida e não é null.
@@ -30,9 +20,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $altura = isset($_POST['altura']);
     $largura = isset($_POST['largura']);
     $comprimento = isset($_POST['comprimento']);
+
+
     $foto = $_FILES['foto']['name'];
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+
+    $foto2 = $_FILES['foto2']['name'];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["foto2"]["name"]);
+
+    $foto3 = $_FILES['foto3']['name'];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["foto3"]["name"]);
+
+    $foto4 = $_FILES['foto4']['name'];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["foto4"]["name"]);
+
+    $foto5 = $_FILES['foto5']['name'];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["foto5"]["name"]);
+
+    $foto6 = $_FILES['foto6']['name'];
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["foto6"]["name"]);
+
 
     // Verifica se o diretório 'uploads/' existe
     if (!is_dir($target_dir)) {
@@ -40,16 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Tenta mover o arquivo para o diretório de uploads
-    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["foto2"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["foto3"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["foto4"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["foto5"]["tmp_name"], $target_file) && move_uploaded_file($_FILES["foto6"]["tmp_name"], $target_file) ) {
         // Preparar e executar a consulta SQL
-        $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, preco, altura, largura, comprimento, foto) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, preco, altura, largura, comprimento, foto, foto2, foto3, foto4, foto5, foto6) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         // Verifique se a preparação da consulta foi bem-sucedida
         if ($stmt === false) {
             die("Erro ao preparar a consulta: " . $conn->error);
         }
 
-        $stmt->bind_param("ssiddds", $nome, $descricao, $preco, $altura, $largura, $comprimento, $foto);
+        $stmt->bind_param("ssidddssssss", $nome, $descricao, $preco, $altura, $largura, $comprimento, $foto, $foto2, $foto3, $foto4, $foto5, $foto6);
 
         if ($stmt->execute()) {
             header("Location: index.php");
