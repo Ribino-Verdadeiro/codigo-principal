@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/09/2024 às 07:10
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 13-Set-2024 às 22:00
+-- Versão do servidor: 10.4.6-MariaDB
+-- versão do PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `login_clientes`
+-- Estrutura da tabela `login_clientes`
 --
 
 CREATE TABLE `login_clientes` (
@@ -36,10 +37,10 @@ CREATE TABLE `login_clientes` (
   `reset_token` varchar(255) DEFAULT NULL,
   `token_expiration` datetime DEFAULT NULL,
   `verification_code` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `login_clientes`
+-- Extraindo dados da tabela `login_clientes`
 --
 
 INSERT INTO `login_clientes` (`ID`, `nome`, `email`, `senha`, `is_admin`, `reset_token`, `token_expiration`, `verification_code`) VALUES
@@ -50,7 +51,7 @@ INSERT INTO `login_clientes` (`ID`, `nome`, `email`, `senha`, `is_admin`, `reset
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `produtos`
+-- Estrutura da tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -61,34 +62,40 @@ CREATE TABLE `produtos` (
   `altura` decimal(10,2) DEFAULT NULL,
   `largura` decimal(10,2) DEFAULT NULL,
   `comprimento` decimal(10,2) DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `foto` varchar(255) DEFAULT NULL,
+  `foto2` varchar(255) DEFAULT NULL,
+  `foto3` varchar(255) DEFAULT NULL,
+  `foto4` varchar(255) DEFAULT NULL,
+  `foto5` varchar(255) DEFAULT NULL,
+  `foto6` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Despejando dados para a tabela `produtos`
+-- Extraindo dados da tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `altura`, `largura`, `comprimento`, `foto`) VALUES
-(1, 'Chrome 128.0.0.0, Windows 10', 'fdsssssssssssss', 141.90, 1.90, 1.90, 1.90, '0');
+INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `altura`, `largura`, `comprimento`, `foto`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`) VALUES
+(4, 'das', 'asd', '1.00', '1.00', '1.00', '1.00', 'Lancheira_ponei.jpg', NULL, NULL, NULL, NULL, NULL),
+(6, 'teste2', 'sadas', '1.00', '1.00', '1.00', '1.00', 'Lancheira_ponei.jpg', 'Lancheira_barbie.jpg', 'foto1.jpg', 'foto4.jpg', 'foto5.jpg', 'foto6.jpg');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `login_clientes`
+-- Índices para tabela `login_clientes`
 --
 ALTER TABLE `login_clientes`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `produtos`
+-- Índices para tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -101,7 +108,7 @@ ALTER TABLE `login_clientes`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
