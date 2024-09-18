@@ -1,10 +1,10 @@
 
 <?php 
 if(isset($_SESSION)){
-    session_start();
 }
 
 $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado'] ==='SIM';
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/icontop.png">
+    <link rel="shortcut icon" href="assets/corujinha.png"/>
     
 
 
@@ -31,7 +31,9 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
       <div class="row">
   
       <div class="col-sm">
-          <a href='index.php' class='imagemi'><img src="assets/imagemIcone.png" class='imagemi' ></a>
+        <a href='index.php' class='imagemi'>
+            <img src="assets/dg1.png" class='imagemi'>
+        </a>
       </div>
   
           <div class="col-sm">
@@ -129,6 +131,7 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
                 <div class="coluna c6">
                     Minha Conta!
                 </div>
+                </a>
                 </a>
                 <?php  else: ?>
                     <a href='login.php' class='nav-link'>

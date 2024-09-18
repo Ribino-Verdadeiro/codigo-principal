@@ -36,6 +36,12 @@
                                         echo "E-mail não encontrado ou não existe.";
                                     } elseif($_GET['status'] == 'erro2') {
                                         echo "Faça login para acessar essa página!";
+                                    } elseif($_GET['status'] == 'erro') {
+                                        echo "E-mail não encontrado ou não existe.";
+                                    } elseif($_GET['status'] == 'email_nao_autorizado') {
+                                        echo "Você não tem permissão para redefinir a senha com esse e-mail.";
+                                    } elseif($_GET['status'] == 'erro2') {
+                                        echo "Faça login para acessar essa página!";
                                     }
                                 ?>
                             </div>

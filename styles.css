@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root{
-    --color-neutral-0: #ffc0cb;
+    --color-neutral-0: #fe48aa;
     --color-neutral-10: #f5f5f5;
-    
 }
 
 *{
-    font-family: 'inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,16 +16,18 @@
 main{
     height: 80vh;
 }
+
 footer{
     width: 100%;
-    color: var(--color-neutral-10);
+    color: #fe48aa;
 }
+
 .footer_link{
     text-decoration: none;
 }
 
 #footer_conteudo{
-    background-color: var(--color-neutral-0);
+    background-color: #fe48aa;
     padding: 3rem 3.5rem;
 }
 
@@ -54,22 +55,24 @@ footer{
 #social-media .footer_link {
     height: 2.5rem;
     width: 2.5rem;
-    color: var(--color-neutral-10);
+    color: #fe48aa;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.4s;
 }
+
 #social-media .footer_link:hover{
     opacity: 0.8;
 }
+
 #social-media .footer_link i{
     font-size: 1.25rem;
 }
 
 #instagram{
-    background: linear-gradient(#7f37c9, #ff2992, #ff9807);
+    background: linear-gradient(#7f37c9, #fe48aa, #ff9807);
 }
 
 #facebook{
@@ -92,7 +95,6 @@ footer{
     width: 7rem;
     height: 7rem;
     margin-left: 45%;
-    
 }
 
 #email{

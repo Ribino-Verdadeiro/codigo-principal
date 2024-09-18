@@ -1,13 +1,13 @@
 <?php
-session_start();
-include 'db_connect.php';
 
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: login.php'); // Redirecionar para login se não estiver logado
+include 'db.php';
+
+if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
+    header('Location: login.php?login=erro2');
     exit();
 }
 
-$user_id = $_SESSION['usuario_id'];
+$user_id = $_SESSION['autenticado'];
 $sql = "SELECT * FROM pedidos WHERE usuario_id = ? ORDER BY data_pedido DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);

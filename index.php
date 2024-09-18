@@ -34,28 +34,27 @@ include 'homeaqui.php';
 <div id="conteiner1">
 
     
-        <?php
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-
-                $nome = htmlspecialchars($row["nome"]);
-                $foto = htmlspecialchars($row["foto"]);
-                $foto_url = "uploads/" . $foto;
-                $nomeM = ucfirst($nome);
-                
-
-                echo "
-                <a href=' # '> <div class='cards card1'>
+<?php
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $id = $row['id']; // Captura o ID do produto
+            $nome = htmlspecialchars($row["nome"]);
+            $foto = htmlspecialchars($row["foto"]);
+            $foto_url = "uploads/" . $foto;
+            $nomeM = ucfirst($nome);
+            
+            echo "
+            <a href='visualizar_produto.php?id=$id'> <div class='cards card1'>
                 <img src='$foto_url' height='300px' width='300px' alt='$nome'>
                 <p class='text'> $nomeM </p>
-                </div> </a>
-                ";
-                        
-            }
-        } else {
-            echo "<p>Nenhum produto encontrado.</p>";
+            </div> </a>
+            ";
         }
-        ?>
+    } else {
+        echo "<p>Nenhum produto encontrado.</p>";
+    }
+?>
+
 
     
 </div>

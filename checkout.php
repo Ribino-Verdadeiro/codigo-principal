@@ -1,50 +1,47 @@
 <?php
-include 'db.php'; // Ajuste o caminho se necessário
 
-// Processar a finalização da compra
+include 'db.php';
+
+// Verificar se o carrinho está vazio
+if (empty($_SESSION['carrinho'])) {
+    header('Location: carrinhodecompras.php');
+    exit();
+}
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION['autenticado'])) {
+    header('Location: login.php');
+    exit();
+}
+
+// Processar o formulário de checkout
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
-    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
-    $total = 0;
+    // Obter dados do formulário
+    $valor = 50.00; // Valor em reais (por exemplo, R$10,00)
 
-    // Verificar se o carrinho não está vazio
-    if (!empty($cart)) {
-        // Inserir pedido na tabela de pedidos
-        $sql = "INSERT INTO pedidos (usuario_id, total, data_pedido) VALUES (?, ?, NOW())";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("id", $usuario_id, $total);
-        $stmt->execute();
-        $pedido_id = $stmt->insert_id; // Obter o ID do pedido inserido
+    // Configurações para o PayPal
+    $paypal_url = 'https://sandbox.paypal.com'; // URL para o ambiente de produção
+    $paypal_email = 'sb-prp8832769978@business.example.com'; // Substitua pelo e-mail do PayPal
 
-        // Inserir itens do pedido
-        $sql = "INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, preco) VALUES (?, ?, ?, ?)";
-        $stmt = $conn->prepare($sql);
+    // Criar um ID de pedido fictício
+    $pedido_id = rand(1000, 9999);
+    $_SESSION['pedido_id'] = $pedido_id;
 
-        foreach ($cart as $id => $item) {
-            $preco = $item['preco'];
-            $quantidade = $item['quantidade'];
-            $total += $preco * $quantidade;
-            $stmt->bind_param("iiid", $pedido_id, $id, $quantidade, $preco);
-            $stmt->execute();
-        }
+    // Redirecionar para o PayPal
+    $paypal_args = array(
+        'cmd' => '_xclick',
+        'business' => $paypal_email,
+        'item_name' => 'Compra na loja virtual',
+        'amount' => number_format($valor, 2, '.', ''),
+        'currency_code' => 'BRL',
+        'return' => 'http://monastore.shop/confirmacao_pagamento.php',
+        'cancel_return' => 'http://monastore.shop/confirmacao_pagamento.php', // Opcional
+        'notify_url' => 'http://monastore.shop/confirmacao_pagamento.php' // Opcional
+    );
 
-        // Atualizar total do pedido
-        $sql = "UPDATE pedidos SET total = ? WHERE id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("di", $total, $pedido_id);
-        $stmt->execute();
-
-        // Limpar o carrinho
-        unset($_SESSION['cart']);
-        unset($_SESSION['cart_count']);
-
-        // Redirecionar para a página de confirmação
-        header('Location: confirmacao_pagamento.php');
-        exit();
-    } else {
-        header('Location: cart.php');
-        exit();
-    }
+    $query_string = http_build_query($paypal_args);
+    header('Location: ' . $paypal_url . '?' . $query_string);
+    exit();
 }
 ?>
 
@@ -54,32 +51,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Compra</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <?php
-    include 'styleCabelho.php';
-    ?>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<?php 
-include 'cabecalho.php';
-?>
+    <?php include 'cabecalho.php'; ?>
 
-<div class="container mt-4">
-    <h2>Finalizar Compra</h2>
-    <form action="checkout.php" method="post">
-        <p>Você está prestes a finalizar a compra. Clique em "Confirmar" para concluir.</p>
-        <button type="submit" class="btn btn-success">Confirmar</button>
-    </form>
-</div>
+    <div class="container mt-4">
+        <h2>Finalizar Compra</h2>
+        <form action="checkout.php" method="post">
+            <button type="submit" class="btn btn-success">Finalizar Compra</button>
+        </form>
+    </div>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-<?php include 'rodape.html'; ?>
+    <?php include 'rodape.html' ?>
 
 </body>
 </html>

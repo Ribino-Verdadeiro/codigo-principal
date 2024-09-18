@@ -1,53 +1,53 @@
 <?php
 include 'db.php';
-include 'validator.php';
 
-// Verificar se o ID do produto foi passado corretamente
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    header('Location: index.php');
+if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
+    header('Location: login.php?login=erro2');
     exit();
 }
 
-$id = intval($_GET['id']);
-$quantidade = 1; // Ajuste conforme necessário
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+    $id = intval($_POST['id']);
 
-// Consultar o produto pelo ID
-$sql = "SELECT * FROM produtos WHERE id = ?";
-$stmt = $conn->prepare($sql);
-if (!$stmt) {
-    die("Erro na preparação da consulta: " . $conn->error);
-}
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
+    // Consultar o produto pelo ID
+    $stmt = $conn->prepare("SELECT * FROM produtos WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
-    $produto = $result->fetch_assoc();
-    
-    // Adicionar produto ao carrinho na sessão
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-    
-    if (isset($_SESSION['cart'][$id])) {
-        $_SESSION['cart'][$id]['quantidade'] += $quantidade;
+    if ($result->num_rows > 0) {
+        $produto = $result->fetch_assoc();
+
+        // Adicionar ao carrinho
+        if (!isset($_SESSION['carrinho'])) {
+            $_SESSION['carrinho'] = array();
+        }
+
+        if (isset($_SESSION['carrinho'][$id])) {
+            $_SESSION['carrinho'][$id]['quantidade']++;
+        } else {
+            $_SESSION['carrinho'][$id] = array(
+                'id' => $id,
+                'nome' => $produto['nome'],
+                'preco' => $produto['preco'],
+                'quantidade' => 1
+            );
+        }
+
+        // Remover da lista de desejos
+        if (isset($_SESSION['wishlist'][$id])) {
+            unset($_SESSION['wishlist'][$id]);
+        }
+
+        $_SESSION['wishlist_message'] = "Produto adicionado ao carrinho e removido da lista de desejos.";
     } else {
-        $_SESSION['cart'][$id] = array(
-            'nome' => $produto['nome'],
-            'preco' => $produto['preco'],
-            'quantidade' => $quantidade
-        );
+        $_SESSION['wishlist_message'] = "Produto não encontrado.";
     }
-    
-    // Atualizar contagem do carrinho
-    $cart_count = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart'], 'quantidade')) : 0;
-    $_SESSION['cart_count'] = $cart_count;
 
-    // Redirecionar para o carrinho
-    header('Location: carrinhodecompras.php');
-    exit();
-} else {
-    // Produto não encontrado
-    echo "Produto não encontrado.";
+    $stmt->close();
+    $conn->close();
+
+    header('Location: listadedesejos.php');
     exit();
 }
+?>

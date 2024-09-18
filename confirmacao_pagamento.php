@@ -1,11 +1,16 @@
 <?php
 include 'db.php';
 
+if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
+    header('Location: login.php?login=erro2');
+    exit();
+}
+
 // Contagem de itens do carrinho
-$cart_count = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart'], 'quantidade')) : 0;
+$cart_count = isset($_SESSION['carrinho']) ? array_sum(array_column($_SESSION['carrinho'], 'quantidade')) : 0;
 
 // Limpar o carrinho após a confirmação
-unset($_SESSION['cart']);
+unset($_SESSION['carrinho']);
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +28,7 @@ unset($_SESSION['cart']);
 <div class="container mt-4">
     <h2>Confirmação de Pagamento</h2>
     <p>Seu pagamento foi processado com sucesso!</p>
+    <p>Você comprou <?php echo htmlspecialchars($cart_count); ?> item(s).</p>
     <a href="index.php" class="btn btn-primary">Voltar para a Página Inicial</a>
 </div>
 
