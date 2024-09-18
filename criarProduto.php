@@ -26,9 +26,7 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 <?php include 'cabecalho.php'?>
 
     <div id="criarproduto">
-
         <form action="processa_criar_produto.php" method="post" enctype="multipart/form-data">
-
             <div class="containercriarprodutosform">
                 <div class="formcriarprodutos">
                     <label for="nome">Nome
@@ -86,7 +84,6 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 
             <!-- Mudar categoria -->
             <div class="formcriarprodutos">
-
                 <label for="categorias">Categorias:</label>
                 <div>
                     <select name="categorias" id="categorias" class="form-select">
@@ -108,9 +105,7 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 
 
             <input type="submit" class="inputcriarprodutos submitdocriarprodutos" value="Criar Produto">
-
         </form>
-        
     </div>
 
 <?php include 'rodape.html' ?>

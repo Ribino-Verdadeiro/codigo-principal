@@ -1,14 +1,15 @@
 <?php
-include 'db.php';
+session_start();
+include 'admin/db_connect.php';
 
 // Verificar se o carrinho está vazio
-if (empty($_SESSION['carrinho'])) {
-    header('Location: carinhodecompras.php');
+if (empty($_SESSION['cart'])) {
+    header('Location: cart.php');
     exit();
 }
 
 // Verificar se o usuário está logado
-if (!isset($_SESSION['autenticado'])) {
+if (!isset($_SESSION['usuario_id'])) {
     header('Location: login.php');
     exit();
 }
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // $stmt->execute([$_SESSION['usuario_id'], $nome, $email, $cpf, $telefone, $endereco, $numero, $bairro, $cidade, $estado, $cep]);
 
     // Limpar o carrinho após a compra
-    unset($_SESSION['carrinho']);
+    unset($_SESSION['cart']);
     
     // Redirecionar para uma página de confirmação
     header('Location: confirmacao_pagamento.php');
@@ -40,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Contagem de itens do carrinho
-$cart_count = isset($_SESSION['carrinho']) ? array_sum(array_column($_SESSION['carrinho'], 'quantidade')) : 0;
+$cart_count = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart'], 'quantidade')) : 0;
 
 // Verificar se o carrinho está vazio
-$is_cart_empty = empty($_SESSION['carrinho']);
+$is_cart_empty = empty($_SESSION['cart']);
 ?>
 
 <!DOCTYPE html>
@@ -52,14 +53,11 @@ $is_cart_empty = empty($_SESSION['carrinho']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
 </head>
-
 <body>
-
-<?php include 'cabecalho.php'; ?>
+<?php include 'header.php'; ?>
 
 <div class="container mt-4">
     <h2>Carrinho de Compras</h2>
@@ -80,7 +78,7 @@ $is_cart_empty = empty($_SESSION['carrinho']);
             <tbody>
                 <?php
                 $total = 0;
-                foreach ($_SESSION['carrinho'] as $id => $item):
+                foreach ($_SESSION['cart'] as $id => $item):
                     $item_total = $item['preco'] * $item['quantidade'];
                     $total += $item_total;
                 ?>
@@ -108,6 +106,5 @@ $is_cart_empty = empty($_SESSION['carrinho']);
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 </html>

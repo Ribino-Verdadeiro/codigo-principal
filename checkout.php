@@ -1,15 +1,15 @@
 <?php
-
-include 'db.php';
+session_start();
+include 'admin/db_connect.php';
 
 // Verificar se o carrinho está vazio
-if (empty($_SESSION['carrinho'])) {
-    header('Location: carrinhodecompras.php');
+if (empty($_SESSION['cart'])) {
+    header('Location: cart.php');
     exit();
 }
 
 // Verificar se o usuário está logado
-if (!isset($_SESSION['autenticado'])) {
+if (!isset($_SESSION['usuario_id'])) {
     header('Location: login.php');
     exit();
 }
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Configurações para o PayPal
     $paypal_url = 'https://sandbox.paypal.com'; // URL para o ambiente de produção
-    $paypal_email = 'sb-prp8832769978@business.example.com'; // Substitua pelo e-mail do PayPal
+    $paypal_email = 'sb-iyvaf32714831@business.example.com'; // Substitua pelo e-mail do PayPal
 
     // Criar um ID de pedido fictício
     $pedido_id = rand(1000, 9999);
@@ -54,17 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-    <?php include 'cabecalho.php'; ?>
-
+    <?php include 'header.php'; ?>
     <div class="container mt-4">
         <h2>Finalizar Compra</h2>
         <form action="checkout.php" method="post">
             <button type="submit" class="btn btn-success">Finalizar Compra</button>
         </form>
     </div>
-
-    <?php include 'rodape.html' ?>
-
 </body>
 </html>

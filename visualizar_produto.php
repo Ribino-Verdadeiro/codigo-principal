@@ -46,11 +46,16 @@ if (!isset($produto)) {
 <?php include 'cabecalho.php'; ?>
 
 <div class="container mt-5">
+
     <div class="row">
+
         <div class="col-md-6">
+
             <!-- Exibir Imagens do Produto -->
+
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
+
                     <?php if (!empty($produto['foto'])): ?>
                         <div class="carousel-item active">
                             <img src="uploads/<?php echo htmlspecialchars($produto['foto']); ?>" class="d-block w-100" alt="Foto Principal">
@@ -74,56 +79,85 @@ if (!isset($produto)) {
                             <img src="uploads/<?php echo htmlspecialchars($produto['foto4']); ?>" class="d-block w-100" alt="Imagem do Produto">
                         </div>
                     <?php endif; ?>
+
                 </div>
+
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
+
                 <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+
             </div>
         </div>
+
+<!-- A parte de cima é o carrosel -->
+
         <div class="col-md-6">
-            <h1><?php echo htmlspecialchars($produto['nome']); ?></h1>
-            <form action="listadedesejos.php" method="post" class="mt-2">
-                <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
-                <button type="submit" id="add-to-wishlist" class="btn btn-primary">
-                    <img src="assets/coracao.png" alt="Adicionar à Lista de Desejos" style="width: 24px; height: 24px;">
-                </button>
-                <div id="confirmation-message" class="alert-message" style="display: none;">Produto adicionado à lista de desejos!</div>
-            </form>
+            <div class="nomedesejo"> 
+                <h1><?php echo htmlspecialchars($produto['nome']); ?></h1> <!-- aqui é o nome do produto -->
 
-            <p><?php echo nl2br(htmlspecialchars($produto['descricao'])); ?></p>
-            
+                <form action="listadedesejos.php" method="post" class="adddesejo">
+
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
+
+                    <button type="submit" id="add-to-wishlist" class="btn btn-primary adddesejo2">
+                        <img src="assets/coracao.png" alt="Adicionar à Lista de Desejos" style="width: 24px; height: 24px;">
+                    </button>
+
+                    <div id="confirmation-message" class="alert-message" style="display: none;">Produto adicionado à lista de desejos!</div>
+                
+                </form> 
+            </div> <!-- esse form é o icone da lista de desejos -->
+
+
+            <!-- Descrição do produto -->
+                
+                <label for="toggle" class='lermais'>Ver Detalhes</label>
+
+                <input type="checkbox" id="toggle">
+
+                <div class="more-content">
+                    <p class='descricao'> <?php echo nl2br(htmlspecialchars($produto['descricao'])); ?> </p>         
+                </div>
+            <!-- Descrição do produto -->
+
             <p><strong>Preço:</strong> R$<?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
-            <p><strong>Dimensões:</strong> <?php echo "{$produto['altura']}cm x {$produto['largura']}cm x {$produto['comprimento']}cm"; ?></p>
 
+            <p><strong>Dimensões:</strong> <?php echo "{$produto['altura']}cm x {$produto['largura']}cm x {$produto['comprimento']}cm"; ?></p>
+                        
             <form action="carrinhodecompras.php" method="post">
+
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                <button type="submit" class="btn btn-success">Adicionar ao Carrinho</button>
-                <BR>
-            <button class="btn btn-warning mt-2" onclick="sendMessage()">Tenha o seu personalizado!</button>
-            <script>
-            function sendMessage() {
-                const phoneNumber = '5543996709161'; // Número no formato internacional
-                const productName = '<?php echo htmlspecialchars($produto['nome']); ?>';
-                const productLink = window.location.href; // Link para a página do produto
-                const message = `Oiii, eu gostaria de um ${productName} personalizado. É esse produto aqui: ${productLink}`;
-                
-                // Cria o link para o WhatsApp
-                const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-                
-                // Abre o link em uma nova aba
-                window.open(whatsappLink, '_blank');
-            }
-            
-            </script>
-              </form>
-    
+                <button type="submit" class="btn btn-success addcarrinho">Adicionar ao Carrinho</button>
+
+                    <BR>
+
+                <button class="btn btn-warning mt-2 addcarrinho" onclick="sendMessage()">Tenha o seu personalizado!</button>
+                <script>
+                    function sendMessage() {
+                        const phoneNumber = '5543996709161'; // Número no formato internacional
+                        const productName = '<?php echo htmlspecialchars($produto['nome']); ?>';
+                        const productLink = window.location.href; // Link para a página do produto
+                        const message = `Oiii, eu gostaria de um ${productName} personalizado. É esse produto aqui: ${productLink}`;
+                        
+                        // Cria o link para o WhatsApp
+                        const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+                        
+                        // Abre o link em uma nova aba
+                        window.open(whatsappLink, '_blank');
+                    }
+                    
+                </script>
+            </form>
+                    
         </div>
     </div>
+
 </div>
 
 <?php include 'rodape.html'; ?>

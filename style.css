@@ -439,3 +439,42 @@ a:hover {
     border-radius: 5px;
     z-index: 1000;
 }
+.adddesejo2{
+    border: none;
+    transition: 0.3s;
+    margin-left: 10px;
+    border-radius: 40%;
+}
+.adddesejo2:hover{
+    background-color: #fe48aa;
+    border-radius: 10px;
+    transform: scale(1.1);
+}
+.nomedesejo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.more-content {
+    display: none;
+}
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"]:checked + .more-content {
+    display: block;
+}
+.lermais{
+    cursor: pointer;
+    text-decoration-line: underline ;
+    user-select: none;
+}
+.addcarrinho{
+    border: none;
+    transition: 0.3s;
+}
+.addcarrinho:hover{
+    background-color: #fe48aa;
+    color: white;
+    transform: scale(1.1);
+}

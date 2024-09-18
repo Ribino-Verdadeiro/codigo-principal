@@ -47,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, preco, altura, largura, comprimento, foto, foto2, foto3, foto4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssidddssss", $nome, $descricao, $preco, $altura, $largura, $comprimento, $foto, $foto2, $foto3, $foto4);
 
-        
         if ($stmt->execute()) {
             $produto_id = $stmt->insert_id; // Obtém o ID do produto inserido
 
