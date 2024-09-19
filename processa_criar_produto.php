@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $comprimento = (float) $_POST['comprimento'];
 
     // Captura a categoria selecionada
-    $categoria_id = isset($_POST['categoria']) ? (int) $_POST['categoria'] : 0;
+    $categoria =  trim($_POST['categoria']);
     
     // Upload das fotos
     $target_dir = "uploads/";
@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($uploadOk) {
         // Insere o produto na tabela 'produtos'
-        $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, preco, altura, largura, comprimento, foto, foto2, foto3, foto4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssidddssss", $nome, $descricao, $preco, $altura, $largura, $comprimento, $foto, $foto2, $foto3, $foto4);
+        $stmt = $conn->prepare("INSERT INTO produtos (nome, descricao, preco, altura, largura, comprimento, foto, foto2, foto3, foto4, categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssidddsssss", $nome, $descricao, $preco, $altura, $largura, $comprimento, $foto, $foto2, $foto3, $foto4, $categoria);
 
         if ($stmt->execute()) {
             $produto_id = $stmt->insert_id; // Obtém o ID do produto inserido

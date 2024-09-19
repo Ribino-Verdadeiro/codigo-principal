@@ -85,7 +85,7 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
         <li class="nav-item">
 
             
-            <a href="#" class="nav-link">
+            <a href="prod_Mochilas.php" class="nav-link">
             <div class="coluna c1">
              Mochilas
             </div> 
@@ -93,7 +93,7 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
             
 
             
-            <a href="#" class="nav-link">
+            <a href="prod_Estojos.php" class="nav-link">
             <div class="coluna c2">
              Estojos 
             </div>
@@ -101,7 +101,7 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
             
 
             
-            <a href="#" class="nav-link">
+            <a href="prod_Chaveiros.php" class="nav-link">
             <div class="coluna c3">
              Chaveiros 
             </div>
@@ -109,18 +109,26 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
             
 
             
-            <a href="#" class="nav-link">
+            <a href="prod_Necessaire.php" class="nav-link">
             <div class="coluna c4">
              Necessaire 
             </div>
             </a>
             
 
-            <a href="#" class="nav-link">
+            <a href="prod_lancheira.php" class="nav-link">
             <div class="coluna c5">
             
-             Personalizados 
+            Lancheiras
+
+            </div>
+            </a>
+
+            <a href="prod_Tapetes.php" class="nav-link">
+            <div class="coluna c6">
             
+            Tapetes
+
             </div>
             </a>
 
@@ -128,14 +136,14 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
                 
                 <?php if($usuario_autenticado): ?> 
                 <a href="minhaconta.php" class="nav-link">
-                <div class="coluna c6">
+                <div class="coluna c7">
                     Minha Conta!
                 </div>
                 </a>
                 </a>
                 <?php  else: ?>
                     <a href='login.php' class='nav-link'>
-                    <div class="coluna c6">
+                    <div class="coluna c7">
                         Logar
                     </div>
                     </a>
@@ -151,13 +159,13 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
 </div>
 
 <div id="categorias">
-    
-<div class="cat1 cat"> Chaveiros </div>
-<div class="cat2 cat"> Necessaire </div>
-<div class="cat3 cat"> Mochilas </div>
-<div class="cat4 cat"> Estojos </div>
-<div class="cat5 cat"> Lancheiras </div>
-<div class="cat6 cat"> Tapetes </div>
+
+<div class="cat3 cat"> <a href="prod_Mochilas.php"> Mochilas </a></div>
+<div class="cat4 cat"> <a href="prod_Estojos.php"> Estojos </a></div>
+<div class="cat1 cat"> <a href="prod_Chaveiros.php"> Chaveiros </a></div>
+<div class="cat2 cat"> <a href="prod_Necessaire.php"> Necessaire </a></div>
+<div class="cat5 cat"> <a href="prod_lancheira.php"> Lancheiras </a></div>
+<div class="cat6 cat"> <a href="prod_Tapetes.php"> Tapetes </a></div>
 
 </div>
 

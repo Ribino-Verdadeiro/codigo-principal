@@ -83,21 +83,12 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
             </div>
 
             <!-- Mudar categoria -->
+            <form action="processa_criar_produto.php" method="POST">
             <div class="formcriarprodutos">
-                <label for="categorias">Categorias:</label>
+                <label for="categoria">Categorias:</label>
                 <div>
-                    <select name="categorias" id="categorias" class="form-select">
-                        <option value="" disabled selected>Selecione uma categoria</option>
-                        <option value="Lancheira">Lancheira</option>
-                        <option value="Estojos">Estojos</option>
-                        <option value="Bolsas Maternidade">Bolsas Maternidade</option>
-                        <option value="Mochila">Mochila</option>
-                        <option value="Tapete">Tapete</option>
-                        <option value="Bordado">Bordado</option>
-                        <option value="Molde">Molde</option>
-                        <option value="Necessaire">Necessaire</option>
-                        <option value="Chaveiros">Chaveiros</option>
-                    </select>
+                    <input type="text" name="categoria" id="categorias"> categoria </input>
+
                 </div>
             </div>
 

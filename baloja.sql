@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Set-2024 às 22:17
+-- Tempo de geração: 19-Set-2024 às 20:46
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.9
 
@@ -21,17 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `baloja`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `categorias`
---
-
-CREATE TABLE `categorias` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -78,29 +67,20 @@ CREATE TABLE `produtos` (
   `foto3` varchar(255) DEFAULT NULL,
   `foto4` varchar(255) DEFAULT NULL,
   `foto5` varchar(255) DEFAULT NULL,
-  `foto6` varchar(255) DEFAULT NULL
+  `foto6` varchar(255) DEFAULT NULL,
+  `categoria` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `produto_categoria`
+-- Extraindo dados da tabela `produtos`
 --
 
-CREATE TABLE `produto_categoria` (
-  `produto_id` int(11) NOT NULL,
-  `categoria_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco`, `altura`, `largura`, `comprimento`, `foto`, `foto2`, `foto3`, `foto4`, `foto5`, `foto6`, `categoria`) VALUES
+(11, 'Lancheira retangular', 'Mantenha seus lanches frescos e organizados com nossa lancheira retangular personalizada. Feita com materiais de alta qualidade, ela possui um design compacto e espaÃ§oso, ideal para o dia a dia. Com forro tÃ©rmico, alÃ§a ajustÃ¡vel e opÃ§Ãµes de personalizaÃ§Ã£o com nome ou estampas, Ã© perfeita para levar estilo e praticidade em qualquer lugar.', '85.00', '20.00', '15.00', '25.00', '0dab1a4e-c941-465c-bc5b-630a81507f8d.jpg', '3a98f714-edf1-4056-9517-e01ccbe5ad9c.jpg', '5f732748-289f-43d8-af55-be93345b9b65.jpg', '991f3884-295b-49ea-9c07-43ee451bf0d4.jpg', NULL, NULL, 'Lancheira');
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices para tabela `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `login_clientes`
@@ -115,21 +95,8 @@ ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produto_categoria`
---
-ALTER TABLE `produto_categoria`
-  ADD KEY `produto_id` (`produto_id`),
-  ADD KEY `categoria_id` (`categoria_id`);
-
---
 -- AUTO_INCREMENT de tabelas despejadas
 --
-
---
--- AUTO_INCREMENT de tabela `categorias`
---
-ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `login_clientes`
@@ -141,18 +108,7 @@ ALTER TABLE `login_clientes`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `produto_categoria`
---
-ALTER TABLE `produto_categoria`
-  ADD CONSTRAINT `produto_categoria_ibfk_1` FOREIGN KEY (`produto_id`) REFERENCES `produtos` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `produto_categoria_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE CASCADE;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
