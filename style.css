@@ -478,3 +478,88 @@ input[type="checkbox"]:checked + .more-content {
     color: white;
     transform: scale(1.1);
 }
+.carrosa{
+    width: 250px;
+    height: 450px;
+}
+.tudo{
+    border: 2px solid black;
+    height: 100vh;
+}
+.menuzin{
+
+    margin-top: 15px;
+    height: 360px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 28%;
+    background-color: #ff1493;
+    border-radius: 10px;
+}
+.parte{
+    margin-top: 2px;
+    font-size: 25px;
+    background-color: #ff1493;
+    color: white;
+    border-radius: 10px;
+    transition: 0.2s;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.parte:hover{
+    cursor: pointer;
+    background-color: #ff6f9f;
+    transform: scaleY(1.1);
+}
+.fav{
+    display: block; text-decoration: none; color: inherit;
+    height: 80px;
+}
+.fav:hover{
+    text-decoration: none;
+    color: white;
+}
+.listadesejos{
+    width: 60%;
+    margin-left: 33%;
+    margin-top: -26%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.parte3::before{
+    background-color: #ff6f9f;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"]:checked + .fav {
+    background-color: rgb(0, 0, 0);
+}
+.remover{
+    border: none;
+    transition: 0.2s;
+}
+.adicionar{
+    border: none;
+    transition: 0.2s;
+}
+.remover:hover{
+    background-color: #ff1493;
+    border: none;
+    transform: scale(1.05);
+}
+.adicionar:hover{
+    background-color: #ff1493;
+    border: none;
+    transform: scale(1.05);
+}

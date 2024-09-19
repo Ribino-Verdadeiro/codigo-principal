@@ -58,25 +58,25 @@ if (!isset($produto)) {
 
                     <?php if (!empty($produto['foto'])): ?>
                         <div class="carousel-item active">
-                            <img src="uploads/<?php echo htmlspecialchars($produto['foto']); ?>" class="d-block w-100" alt="Foto Principal">
+                            <img src="uploads/<?php echo htmlspecialchars($produto['foto']); ?>" class="d-block w-100 carrosa" alt="Foto Principal">
                         </div>
                     <?php endif; ?>
 
                     <?php if (!empty($produto['foto2'])): ?>
                         <div class="carousel-item">
-                            <img src="uploads/<?php echo htmlspecialchars($produto['foto2']); ?>" class="d-block w-100" alt="Foto Secundária">
+                            <img src="uploads/<?php echo htmlspecialchars($produto['foto2']); ?>" class="d-block w-100 carrosa" alt="Foto Secundária">
                         </div>
                     <?php endif; ?>
 
                     <?php if (!empty($produto['foto3'])): ?>
                         <div class="carousel-item">
-                            <img src="uploads/<?php echo htmlspecialchars($produto['foto3']); ?>" class="d-block w-100" alt="Imagem do Produto">
+                            <img src="uploads/<?php echo htmlspecialchars($produto['foto3']); ?>" class="d-block w-100 carrosa" alt="Imagem do Produto">
                         </div>
                     <?php endif; ?>
 
                     <?php if (!empty($produto['foto4'])): ?>
                         <div class="carousel-item">
-                            <img src="uploads/<?php echo htmlspecialchars($produto['foto4']); ?>" class="d-block w-100" alt="Imagem do Produto">
+                            <img src="uploads/<?php echo htmlspecialchars($produto['foto4']); ?>" class="d-block w-100 carrosa" alt="Imagem do Produto">
                         </div>
                     <?php endif; ?>
 
