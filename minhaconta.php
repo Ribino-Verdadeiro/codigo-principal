@@ -1,6 +1,21 @@
 <?php
-include 'validator.php';
+include 'db.php';
+
+if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
+    header('Location: login.php?login=erro2');
+    exit();
+}
+
+$sql ='SELECT * FROM login_clientes';
+
+$result = $conn->query($sql);
+
+
+
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,42 +36,37 @@ include 'validator.php';
     ?>
 
 
-    <div class="tudo">
+
+
+<div class="tudo">
 
         <div class="menuzin">
 
             <a href='meusdados.php' class='fav'> <div class="parte1 parte"> MEUS DADOS </div> </a>
-            <a href='#' class='fav'> <div class="parte2 parte"> MEUS PEDIDOS </div> </a>
+            <a href='meus_pedidos.php' class='fav'> <div class="parte2 parte"> MEUS PEDIDOS </div> </a>
             <a href='listadedesejos.php' class='fav'> <div class="parte3 parte"> MEUS FAVORITOS </div> </a>
             <a href='#' class='fav'> <div class="parte4 parte"> ENDEREÇOS </div> </a>
-          </div>
-    </div>
 
+        </div>
+    
+        <div class='bemvindodiv'>
+            <?php    
+            if ($result->num_rows > 0){
 
-        
+               while($row=$result->fetch_assoc()) {
+                $nome = htmlspecialchars($row['nome']);
+               }
+            }
+            
+            echo "<p class='bemvindo'> Seja bem vindo(a)  $nome  </p>";
+            
+            ?>
 
+        </div>
 
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <a class="logoffgg" href="logoff.php">Sair</a>
-
-
+    <a class="logoffgg" href="logoff.php">Sair</a>
 
 
     <?php

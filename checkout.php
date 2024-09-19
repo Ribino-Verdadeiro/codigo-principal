@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Configurações para o PayPal
     $paypal_url = 'https://sandbox.paypal.com'; // URL para o ambiente de produção
-    $paypal_email = 'sb-iyvaf32714831@business.example.com'; // Substitua pelo e-mail do PayPal
+    $paypal_email = 'sb-prp8832769978@business.example.com'; // Substitua pelo e-mail do PayPal
 
     // Criar um ID de pedido fictício
     $pedido_id = rand(1000, 9999);

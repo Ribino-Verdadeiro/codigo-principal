@@ -30,9 +30,10 @@ if (!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'SIM') {
     <div class="menuzin">
 
         <a href='meusdados.php' class='fav'> <div class="parte1 parte"> MEUS DADOS </div> </a>
-        <a href='#' class='fav'> <div class="parte2 parte"> MEUS PEDIDOS </div> </a>
+        <a href='meus_pedidos.php' class='fav'> <div class="parte2 parte"> MEUS PEDIDOS </div> </a>
         <a href='listadedesejos.php' class='fav'> <div class="parte3 parte"> MEUS FAVORITOS </div> </a>
         <a href='#' class='fav'> <div class="parte4 parte"> ENDEREÇOS </div> </a>
+
     </div>
 </div>
 

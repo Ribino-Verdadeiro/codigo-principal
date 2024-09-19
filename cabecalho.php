@@ -136,15 +136,19 @@ $usuario_autenticado = isset($_SESSION['autenticado']) && $_SESSION['autenticado
                 
                 <?php if($usuario_autenticado): ?> 
                 <a href="minhaconta.php" class="nav-link">
-                <div class="coluna c7">
+                <div class="coluna c7 mc">
+
                     Minha Conta!
+
                 </div>
                 </a>
                 </a>
                 <?php  else: ?>
                     <a href='login.php' class='nav-link'>
-                    <div class="coluna c7">
+                    <div class="coluna c7 mc">
+
                         Logar
+
                     </div>
                     </a>
                 <?php endif;?>

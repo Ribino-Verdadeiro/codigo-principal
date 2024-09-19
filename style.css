@@ -528,9 +528,9 @@ input[type="checkbox"]:checked + .more-content {
 }
 .listadesejos{
     width: 60%;
-    margin-left: 33%;
-    margin-top: -26%;
+    height: 400px;
     display: flex;
+    flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -562,4 +562,36 @@ input[type="checkbox"]:checked + .fav {
     background-color: #ff1493;
     border: none;
     transform: scale(1.05);
+}
+.mc{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tudo{
+    display: flex;
+
+}
+.bemvindo{
+    font-size: 60px;
+    font-family: Pacifico, sans-serif;
+}
+.bemvindodiv{
+
+    width: 72%;
+    height: 100px;
+    margin-top: 20px;
+    text-align: center;
+    user-select: none;
+}
+
+.pedidos{
+    width: 60%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
